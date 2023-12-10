@@ -11,6 +11,15 @@
 		909CA4612B23B3C100104EB5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909CA4602B23B3C100104EB5 /* ContentView.swift */; };
 		909CA4632B23B3C300104EB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 909CA4622B23B3C300104EB5 /* Assets.xcassets */; };
 		909CA4662B23B3C300104EB5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 909CA4652B23B3C300104EB5 /* Preview Assets.xcassets */; };
+		90DB9CAE2B25D0EA0042B95B /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DB9CAD2B25D0EA0042B95B /* ListView.swift */; };
+		90DB9CB02B25D0FD0042B95B /* AddBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DB9CAF2B25D0FD0042B95B /* AddBook.swift */; };
+		90DB9CB22B25D10B0042B95B /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DB9CB12B25D10B0042B95B /* Book.swift */; };
+		90DB9CB42B25D11E0042B95B /* BookDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DB9CB32B25D11E0042B95B /* BookDetailView.swift */; };
+		90DB9CB62B25D1360042B95B /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DB9CB52B25D1360042B95B /* CircularProgressBar.swift */; };
+		90DB9CB82B25D1490042B95B /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DB9CB72B25D1490042B95B /* ImagePicker.swift */; };
+		90DB9CBA2B25D1540042B95B /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DB9CB92B25D1540042B95B /* Library.swift */; };
+		90DB9CBC2B25D1AD0042B95B /* defaultCover.png in Resources */ = {isa = PBXBuildFile; fileRef = 90DB9CBB2B25D1AD0042B95B /* defaultCover.png */; };
+		90DB9CBF2B25E7780042B95B /* DocumentScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DB9CBE2B25E7780042B95B /* DocumentScannerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +28,16 @@
 		909CA4602B23B3C100104EB5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		909CA4622B23B3C300104EB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		909CA4652B23B3C300104EB5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		90DB9CAD2B25D0EA0042B95B /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		90DB9CAF2B25D0FD0042B95B /* AddBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBook.swift; sourceTree = "<group>"; };
+		90DB9CB12B25D10B0042B95B /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		90DB9CB32B25D11E0042B95B /* BookDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailView.swift; sourceTree = "<group>"; };
+		90DB9CB52B25D1360042B95B /* CircularProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBar.swift; sourceTree = "<group>"; };
+		90DB9CB72B25D1490042B95B /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		90DB9CB92B25D1540042B95B /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
+		90DB9CBB2B25D1AD0042B95B /* defaultCover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultCover.png; sourceTree = "<group>"; };
+		90DB9CBD2B25DB900042B95B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		90DB9CBE2B25E7780042B95B /* DocumentScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentScannerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,9 +70,19 @@
 		909CA45D2B23B3C100104EB5 /* TinyLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				90DB9CBD2B25DB900042B95B /* Info.plist */,
 				909CA45E2B23B3C100104EB5 /* TinyLibraryApp.swift */,
+				90DB9CAD2B25D0EA0042B95B /* ListView.swift */,
+				90DB9CAF2B25D0FD0042B95B /* AddBook.swift */,
+				90DB9CBE2B25E7780042B95B /* DocumentScannerView.swift */,
+				90DB9CB12B25D10B0042B95B /* Book.swift */,
+				90DB9CB32B25D11E0042B95B /* BookDetailView.swift */,
+				90DB9CB52B25D1360042B95B /* CircularProgressBar.swift */,
+				90DB9CB72B25D1490042B95B /* ImagePicker.swift */,
+				90DB9CB92B25D1540042B95B /* Library.swift */,
 				909CA4602B23B3C100104EB5 /* ContentView.swift */,
 				909CA4622B23B3C300104EB5 /* Assets.xcassets */,
+				90DB9CBB2B25D1AD0042B95B /* defaultCover.png */,
 				909CA4642B23B3C300104EB5 /* Preview Content */,
 			);
 			path = TinyLibrary;
@@ -125,6 +154,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90DB9CBC2B25D1AD0042B95B /* defaultCover.png in Resources */,
 				909CA4662B23B3C300104EB5 /* Preview Assets.xcassets in Resources */,
 				909CA4632B23B3C300104EB5 /* Assets.xcassets in Resources */,
 			);
@@ -137,8 +167,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90DB9CB02B25D0FD0042B95B /* AddBook.swift in Sources */,
 				909CA4612B23B3C100104EB5 /* ContentView.swift in Sources */,
 				909CA45F2B23B3C100104EB5 /* TinyLibraryApp.swift in Sources */,
+				90DB9CB22B25D10B0042B95B /* Book.swift in Sources */,
+				90DB9CB62B25D1360042B95B /* CircularProgressBar.swift in Sources */,
+				90DB9CBF2B25E7780042B95B /* DocumentScannerView.swift in Sources */,
+				90DB9CB82B25D1490042B95B /* ImagePicker.swift in Sources */,
+				90DB9CB42B25D11E0042B95B /* BookDetailView.swift in Sources */,
+				90DB9CAE2B25D0EA0042B95B /* ListView.swift in Sources */,
+				90DB9CBA2B25D1540042B95B /* Library.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +313,8 @@
 				DEVELOPMENT_TEAM = 2L8JQV2D2N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TinyLibrary/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "TinyLibrary needs to access your camera to detect book covers";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -304,6 +344,8 @@
 				DEVELOPMENT_TEAM = 2L8JQV2D2N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TinyLibrary/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "TinyLibrary needs to access your camera to detect book covers";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

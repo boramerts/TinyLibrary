@@ -8,14 +8,32 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var library = Library()
+    @State private var isAddBookPresented = false
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationView {
+            VStack {
+                List($library.books) { book in
+                    NavigationLink(destination: BookDetailView(library: $library, book: book)) {
+                        ListView(book: book)
+                    }
+                }
+            }
+            .navigationTitle("Library")
+            .navigationBarItems(trailing: addButton)
+            .sheet(isPresented: $isAddBookPresented) {
+                AddBook(library: $library, isPresented: $isAddBookPresented)
+            }
         }
-        .padding()
+    }
+    
+    var addButton: some View {
+        Button(action: {
+            isAddBookPresented.toggle()
+        }) {
+            Image(systemName: "plus")
+        }
     }
 }
 
