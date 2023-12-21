@@ -19,10 +19,12 @@ struct ListView: View {
                 .padding(.trailing)
             VStack(alignment: .leading){
                 Text(book.name)
-                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                    .font(.headline)
                 Text(book.writer)
                     .font(.caption)
             }
+            Spacer()
+            CircularProgressBar(percentage: Double(book.readPercentage), width: 40)
         }
         .padding(10)
         .id(book.id)
@@ -31,5 +33,5 @@ struct ListView: View {
 
 
 #Preview {
-    ListView(book: .constant(Book(name: "", writer: "", pagesRead: 1, bookLength: 1)))
+    ListView(book: .constant(Book(name: "Name", writer: "Writer", pagesRead: 1, bookLength: 10)))
 }

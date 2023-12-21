@@ -10,7 +10,14 @@ import SwiftUI
 struct BookDetailView: View {
     @Binding var library: Library
     @Binding var book: Book
-    @State private var pagesReadStepperValue: Double = 0
+    @State private var pagesReadStepperValue: Double
+    
+    init(library: Binding<Library>, book: Binding<Book>) {
+        self._library = library
+        self._book = book
+        // Initialize the Stepper value with the current pages read of the book
+        self._pagesReadStepperValue = State(initialValue: Double(book.wrappedValue.pagesRead))
+    }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
@@ -25,7 +32,7 @@ struct BookDetailView: View {
                     
                     VStack(alignment: .leading, spacing: 8) {
                         Text(book.name)
-                            .font(.title)
+                            .font(.headline)
                             .fontWeight(.bold)
                             .fixedSize(horizontal: false, vertical: true)
                         Text(book.writer)
@@ -35,7 +42,7 @@ struct BookDetailView: View {
                         HStack{
                             Spacer()
                             
-                            CircularProgressBar(percentage: Double(book.readPercentage) / 100.0)
+                            CircularProgressBar(percentage: Double(book.readPercentage), width: 50)
                                 .padding(.trailing, 20)
                         }
                     }
@@ -52,10 +59,15 @@ struct BookDetailView: View {
                 .foregroundColor(.gray)
             
             Stepper("Pages Read: \(Int(pagesReadStepperValue))", value: $pagesReadStepperValue, in: 0...Double(book.bookLength))
-                .padding(.vertical, 10)
-                .onChange(of: pagesReadStepperValue) {
-                    book.pagesRead = Int(pagesReadStepperValue)
-                }
+                        .padding(.vertical, 10)
+                        .onChange(of: pagesReadStepperValue) { oldValue, newValue in
+                            if let index = library.books.firstIndex(where: { $0.id == book.id }) {
+                                library.books[index].pagesRead = Int(newValue)
+                                // Also update the local binding of the book
+                                book.pagesRead = Int(newValue)
+                                library.saveBooks()
+                            }
+                        }
             
             Spacer()
             

@@ -26,10 +26,11 @@ import Foundation
         saveBooks()
     }
     
-    private func saveBooks() {
+    func saveBooks() {
         do {
             let encodedData = try JSONEncoder().encode(books)
             UserDefaults.standard.set(encodedData, forKey: "library_books")
+            print("Library saved.")
         } catch {
             print("Error encoding books: \(error)")
         }
@@ -39,6 +40,7 @@ import Foundation
         if let data = UserDefaults.standard.data(forKey: "library_books") {
             do {
                 books = try JSONDecoder().decode([Book].self, from: data)
+                print("Library load complete.")
             } catch {
                 print("Error decoding books: \(error)")
             }

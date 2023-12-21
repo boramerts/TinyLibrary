@@ -50,6 +50,6 @@ struct Book: Identifiable, Decodable, Encodable {
     }
     
     func calculatePerc(_ read: Int, _ all: Int) -> Int {
-        return Int(Double(read) / Double(all) * 100.0)
+        return all > 0 ? Int(Double(read) / Double(all) * 100.0) : 0
     }
 }
