@@ -10,17 +10,17 @@ import SwiftUI
 struct BookDetailView: View {
     @Binding var library: Library
     @Binding var book: Book
-    @State private var pagesReadStepperValue: Double
+    @State var localPagesRead: Int
     
     init(library: Binding<Library>, book: Binding<Book>) {
         self._library = library
         self._book = book
         // Initialize the Stepper value with the current pages read of the book
-        self._pagesReadStepperValue = State(initialValue: Double(book.wrappedValue.pagesRead))
+        self._localPagesRead = State(initialValue: book.wrappedValue.pagesRead)
     }
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 20) {
+        VStack(alignment: .center){
             VStack {
                 HStack(alignment: .top) {
                     book.image
@@ -37,59 +37,36 @@ struct BookDetailView: View {
                             .fixedSize(horizontal: false, vertical: true)
                         Text(book.writer)
                             .font(.subheadline)
-                            .foregroundColor(.gray)
+                            .foregroundColor(.white)
                             .fixedSize(horizontal: false, vertical: true)
+                            .padding(.bottom, 30)
                         HStack{
                             Spacer()
                             
                             CircularProgressBar(percentage: Double(book.readPercentage), width: 50)
-                                .padding(.trailing, 20)
                         }
                     }
                     
                     Spacer()
                 }
-                
+                .padding()
+                .background(RoundedRectangle(cornerRadius: 10).fill(.secondary).stroke(.secondary, lineWidth: 3))
             }
-            
-            Divider()
-            
-            Text("Number of Pages: \(book.bookLength)")
-                .font(.title2)
-                .foregroundColor(.gray)
-            
-            Stepper("Pages Read: \(Int(pagesReadStepperValue))", value: $pagesReadStepperValue, in: 0...Double(book.bookLength))
-                        .padding(.vertical, 10)
-                        .onChange(of: pagesReadStepperValue) { oldValue, newValue in
-                            if let index = library.books.firstIndex(where: { $0.id == book.id }) {
-                                library.books[index].pagesRead = Int(newValue)
-                                // Also update the local binding of the book
-                                book.pagesRead = Int(newValue)
-                                library.saveBooks()
-                            }
-                        }
-            
-            Spacer()
-            
-            Button(action: {
-                if let index = library.books.firstIndex(where: { $0.id == book.id }) {
-                    library.deleteBook(index)
-                }
-            }) {
-                Text("Delete Book")
-                    .padding()
-                    .foregroundColor(.white)
-                    .background(RoundedRectangle(cornerRadius: 10).fill(Color.red))
+            HStack{
+                pagesReadEditor(library: $library, book: $book, localPagesRead: $localPagesRead).frame(maxWidth: .infinity, maxHeight: .infinity)
+                Quotes().frame(maxWidth: .infinity, maxHeight: .infinity)
+            }.frame(maxHeight: 200)
+            HStack{
+                readingGraph(book: $book).frame(maxWidth: .infinity, maxHeight: .infinity)
             }
-            .frame(maxWidth: .infinity)
-            .padding(.horizontal, 20)
-            .padding(.bottom, 40)
-        }
-        .padding()
+            HStack{
+                Quotes()
+            }
+        }.padding()
     }
 }
 
 
 #Preview {
-    BookDetailView(library: .constant(Library()), book: .constant(Book(name: "Book Name Long For Demo", writer: "Long Writer Name to Demo", pagesRead: 1, bookLength: 1)))
+    BookDetailView(library: .constant(Library()), book: .constant(Book(name: "Book Name Long For Demo", writer: "Long Writer Name to Demo", pagesRead: 1, bookLength: 100)))
 }
